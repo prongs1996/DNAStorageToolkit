@@ -1,0 +1,12 @@
+editdistance==0.6.0
+matplotlib==3.6.3
+mlconfig==0.2.0
+numpy==1.21.3
+numpy==1.24.2
+pandas==1.3.4
+Pillow==8.4.0
+Pillow==10.0.1
+pyspoa==0.1.0
+torch==2.0.1
+torchvision==0.15.2
+tqdm==4.64.1

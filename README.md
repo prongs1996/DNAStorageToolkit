@@ -26,9 +26,21 @@ This repository provides an open-source, end-to-end DNA data storage toolkit tha
 ## Installation
 
 To get started with our DNA storage pipeline toolkit, you need to install the following:
-> * Python 2.7 or later
+> * Python 3
 > * G++
 > * pyspoa
+> * editdistance
+
+For the RNN simulator, you will need:
+> * matplotlib
+> * tqdm
+> * mlconfig
+> * numpy
+> * pandas
+> * Pillow
+> * torch
+> * torchvision
+
 
 
 After installing these, you can simply clone this repo and use the modules directly:
