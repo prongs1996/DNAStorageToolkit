@@ -27,22 +27,18 @@ This repository provides an open-source, end-to-end DNA data storage toolkit tha
 
 To get started with our DNA storage pipeline toolkit, you need to install the following:
 > * Python 2.7 or later
-> * 
-> * 
-> * 
-> * 
-> * 
-> * 
+> * G++
+> * pyspoa
 
 
 After installing these, you can simply clone this repo and use the modules directly:
 
 ```
-$ git clone <insert github here>
+$ git clone https://github.com/prongs1996/DNAStorageToolkit.git
 
-$ cd <insert directory name here>
+$ cd DNAStorageToolkit
 ```
-To see the pipeline in action, run one of the demos made available directly:
+To see the pipeline in action, run the demo made available directly:
 ```
 $ sh demo1.sh
 ```
@@ -50,7 +46,7 @@ $ sh demo1.sh
 
 ## Usage
 
-To demonstrate how to use the toolkit, we have provided two demo scripts ([**demo1.sh**](./demo1.sh) and [demo2.sh](./demo2.sh)) that take two different images through two different variations of the entire DNA storage pipelines.
+To demonstrate how to use the toolkit, we have provided a demo script ([**demo1.sh**](./demo1.sh)) that takes an image through the entire DNA storage pipeline.
 
 For further info on how to use each module independently, check the readme files in the individual directories.
 

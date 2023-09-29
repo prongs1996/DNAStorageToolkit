@@ -1,0 +1,34 @@
+check_only: False
+
+attempt: 1
+model_name: MLP
+output_dir: ./results/ms_nano/${model_name}_attempt_${attempt}
+log_fn: ./results/ms_nano/${model_name}_attempt_${attempt}/log.txt
+use_tensorboard: True
+dataset_root: ./data/Microsoft_Nanopore
+train_path: ${dataset_root}/train.json
+valid_path: ${dataset_root}/valid.json
+test_path: ${dataset_root}/test.json
+
+model_args:
+  seq_len: 58
+  embed_dim: 64
+  vocab_size: 5
+  hidden_dim: 1024
+
+EPOCH: 200
+batch_size: 512
+num_workers: 8
+LR: 0.001 # 1e-3
+WEIGHT_DECAY: 0.001 # 1e-3
+REDUCE_EPOCH: 20000
+REDUCE_FACTOR: 0.9
+
+EARLY_STOP: True
+PATIENCE: 20 #1e4
+
+generation_coverage: 5
+recon_ref_path: './results/ms_nano/recon_ref/recon_result.json'
+
+device: 'cuda'
+gpu: '2'

@@ -1,0 +1,34 @@
+check_only: false
+debug: false
+attempt: 1
+model_name: Seq2seqRNN
+output_dir: ./results/ms_nano/Seq2seqRNN_attempt_1
+log_fn: ./results/ms_nano/Seq2seqRNN_attempt_1/log.txt
+use_tensorboard: true
+dataset_root: ./data/Microsoft_Nanopore
+train_path: ./data/Microsoft_Nanopore/train.json
+valid_path: ./data/Microsoft_Nanopore/valid.json
+test_path: ./data/Microsoft_Nanopore/test.json
+dataset_class: S2sDataset
+vocab_size: 8
+d_model: 128
+model_args:
+  vocab_size: '8'
+  hidden_size: '128'
+  enc_rnn_layer: 1
+  dec_rnn_layer: 1
+  bi_enc: true
+EPOCH: 20
+batch_size: 512
+num_workers: 8
+LR: 0.001
+WEIGHT_DECAY: 0.001
+REDUCE_EPOCH: 20000
+REDUCE_FACTOR: 0.9
+EARLY_STOP: true
+PATIENCE: 5
+generation_coverage: 5
+generate_bs: 128
+recon_ref_path: ./results/ms_nano/recon_ref/recon_result.json
+device: cuda
+gpu: '0'

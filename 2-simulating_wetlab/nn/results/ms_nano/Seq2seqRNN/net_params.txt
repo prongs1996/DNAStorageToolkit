@@ -1,0 +1,27 @@
+Seq2seqRNN(
+  (embed): Embedding(8, 128)
+  (encoder): EncoderRNN(
+    (emb): Embedding(8, 128)
+    (gru): GRU(128, 128, batch_first=True, bidirectional=True)
+  )
+  (decoder): AttentionalRNNDecoder(
+    (proj): Linear(in_features=256, out_features=128, bias=True)
+    (attn): ContentBasedAttention(
+      (mlp_enc): Linear(in_features=256, out_features=128, bias=True)
+      (mlp_dec): Linear(in_features=128, out_features=128, bias=True)
+      (mlp_attn): Linear(in_features=128, out_features=1, bias=False)
+      (mlp_out): Linear(in_features=256, out_features=128, bias=True)
+      (softmax): Softmax(dim=-1)
+    )
+    (drop): Dropout(p=0.0, inplace=False)
+    (rnn): GRUCell(
+      (rnn_cells): ModuleList(
+        (0): GRUCell(256, 128)
+      )
+      (dropout_layers): ModuleList()
+    )
+    (emb): Embedding(8, 128)
+  )
+  (lm_head): Linear(in_features=128, out_features=8, bias=True)
+)
+Num of param: 463,752

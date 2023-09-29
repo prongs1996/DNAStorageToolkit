@@ -1,0 +1,6 @@
+MLP(
+  (embed): Embedding(5, 64, padding_idx=0)
+  (linear1): Linear(in_features=3712, out_features=1024, bias=True)
+  (linear2): Linear(in_features=1024, out_features=290, bias=True)
+)
+Num of param: 4,099,682

@@ -1,0 +1,42 @@
+check_only: False
+debug: False
+
+# deeper encoder
+attempt: 7
+model_name: Seq2seqRNN
+output_dir: ./results/ms_nano/${model_name}_attempt_${attempt}
+log_fn: ./results/ms_nano/${model_name}_attempt_${attempt}/log.txt
+use_tensorboard: True
+dataset_root: ./data/Microsoft_Nanopore
+train_path: ${dataset_root}/train.json
+valid_path: ${dataset_root}/valid.json
+test_path: ${dataset_root}/test.json
+
+dataset_class: S2sDataset
+
+vocab_size: 8
+d_model: 128
+model_args:
+  vocab_size: ${vocab_size}
+  hidden_size: ${d_model}
+  enc_rnn_layer: 1
+  dec_rnn_layer: 2
+  bi_enc: True
+
+EPOCH: 20
+batch_size: 512
+num_workers: 8
+LR: 0.001 # 1e-3
+WEIGHT_DECAY: 0.001 # 1e-3
+REDUCE_EPOCH: 20000
+REDUCE_FACTOR: 0.9
+
+EARLY_STOP: True
+PATIENCE: 5 #1e4
+
+generation_coverage: 5
+generate_bs: 128
+recon_ref_path: './results/ms_nano/recon_ref/recon_result.json'
+
+device: 'cuda'
+gpu: '2'

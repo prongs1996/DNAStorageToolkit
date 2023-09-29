@@ -1,0 +1,8 @@
+mlconfig==0.1.8
+numpy==1.23.1
+pandas==1.5.2
+tqdm==4.64.1
+pillow==9.2.0
+matplotlib==3.6.2
+tensorboard==2.11.0
+editdistance==0.6.2

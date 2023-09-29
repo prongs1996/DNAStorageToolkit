@@ -1,17 +1,11 @@
-# Let's assume this one goes normal reed-solomon, naive wetlab, clustering, reconstruction and decoding
-
 #!/bin/sh
 set -x
 
 # Set up directories
 
-BASE_DIR='/home/csbingao/FAST/DNAPipeline/data'  # copy this folder to your home folder and update this line correspondingly
+BASE_DIR='/home/puru/DNAStorageToolkit/data'  # data directory, update this line correspondingly
 
-CODE_DIR='/home/csbingao/FAST/DNAPipeline'  # copy this folder to your home folder and update this line correspondingly
-
-#export PATH="/home/old_home/shared/cs6219/dependencies/GCC/bin:/scratch/shared/cs6219/dependencies/squashfs-root/usr/bin:$PATH"
-#export LD_LIBRARY_PATH=/home/old_home/shared/cs6219/dependencies/GCC/lib64/:$LD_LIBRARY_PATH
-
+CODE_DIR='/home/puru/DNAStorageToolkit'  # code directory, update this line correspondingly
 
 # The DNA based data storage pipeline consists of the following steps:
 # 1) Encoding data into DNA strands
@@ -20,12 +14,12 @@ CODE_DIR='/home/csbingao/FAST/DNAPipeline'  # copy this folder to your home fold
 # 4) Reconstructing original DNA strands from clusters of reads 
 # 5) Decoding data from reconstructed strands
 # 
-# We will be implementing the entire pipeline here:
+# We will be executing the entire pipeline here:
 
 # Pick configuration file for Input Data
 
 file_name='cat_naive'
-config_file='1-encoding-decoding_config'
+config_file='cat_naive'
 # for example-1 use "1-encoding-decoding_config.cfg", for example-2 use "text-data-example.cfg"
 
 skipRS='0' # '0' if you want to use Reed Solomon Code for redundancy, '1' if not
@@ -40,7 +34,7 @@ coverage='10'
 
 
 cd $CODE_DIR/1-encoding-decoding/
-python3 $CODE_DIR/1-encoding-decoding/codec.py $BASE_DIR $CODE_DIR/0-configs/${config_file}.cfg 0 $file_name $skipRS 
+python3 $CODE_DIR/1-encoding-decoding/codec.py $BASE_DIR $CODE_DIR/1-encoding-decoding/configs/${config_file}.cfg 0 $file_name $skipRS 
 cd -
 
 
@@ -71,5 +65,5 @@ python3 $CODE_DIR/4-reconstruction/recon.py --i $BASE_DIR/output/${file_name}_P$
 # 5) Decoding data from reconstructed strands
 
 cd $CODE_DIR/1-encoding-decoding
-python3 $CODE_DIR/1-encoding-decoding/codec.py $BASE_DIR $CODE_DIR/0-configs/${config_file}.cfg 1 ${file_name}_P${P}_N${coverage} $skipRS 
+python3 $CODE_DIR/1-encoding-decoding/codec.py $BASE_DIR $CODE_DIR/1-encoding-decoding/configs/${config_file}.cfg 1 ${file_name}_P${P}_N${coverage} $skipRS 
 cd -
