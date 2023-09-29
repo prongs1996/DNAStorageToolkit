@@ -3,9 +3,9 @@ set -x
 
 # Set up directories
 
-BASE_DIR='/home/puru/DNAStorageToolkit/data'  # data directory, update this line correspondingly
+BASE_DIR='./data'  # data directory, update this line correspondingly
 
-CODE_DIR='/home/puru/DNAStorageToolkit'  # code directory, update this line correspondingly
+CODE_DIR='.'  # code directory, update this line correspondingly
 
 # The DNA based data storage pipeline consists of the following steps:
 # 1) Encoding data into DNA strands
@@ -32,11 +32,9 @@ coverage='10'
 
 # 1) Encoding data into DNA strands
 
-
-cd $CODE_DIR/1-encoding-decoding/
-python3 $CODE_DIR/1-encoding-decoding/codec.py $BASE_DIR $CODE_DIR/1-encoding-decoding/configs/${config_file}.cfg 0 $file_name $skipRS 
-cd -
-
+cd $CODE_DIR/1-encoding-decoding
+python3 codec.py ../$BASE_DIR configs/${config_file}.cfg 0 $file_name $skipRS 
+cd ..
 
 # 2) Simulating wetlab activities which introduce errors - Synthesizing, storing and sequencing DNA strands - 
 
@@ -50,12 +48,12 @@ python3 $CODE_DIR/2-simulating_wetlab/naive/shuffle.py $BASE_DIR/output/${file_n
  
 
 cd $CODE_DIR/3-clustering
-cp $BASE_DIR/output/${file_name}_P${P}_N${coverage}/NoisyStrands.txt input/.
-cp $BASE_DIR/output/${file_name}_P${P}_N${coverage}/UnderlyingClusters.txt input/.
+cp ../$BASE_DIR/output/${file_name}_P${P}_N${coverage}/NoisyStrands.txt input/.
+cp ../$BASE_DIR/output/${file_name}_P${P}_N${coverage}/UnderlyingClusters.txt input/.
 make run
 
-cp $CODE_DIR/3-clustering/output/ClusteredStrands.txt  $BASE_DIR/output/${file_name}_P${P}_N${coverage}/.
-
+cp ./output/ClusteredStrands.txt  ../$BASE_DIR/output/${file_name}_P${P}_N${coverage}/.
+cd ..
 
 # 4) Reconstructing original DNA strands from clusters of reads 
 
@@ -65,5 +63,5 @@ python3 $CODE_DIR/4-reconstruction/recon.py --i $BASE_DIR/output/${file_name}_P$
 # 5) Decoding data from reconstructed strands
 
 cd $CODE_DIR/1-encoding-decoding
-python3 $CODE_DIR/1-encoding-decoding/codec.py $BASE_DIR $CODE_DIR/1-encoding-decoding/configs/${config_file}.cfg 1 ${file_name}_P${P}_N${coverage} $skipRS 
-cd -
+python3 codec.py ../$BASE_DIR configs/${config_file}.cfg 1 ${file_name}_P${P}_N${coverage} $skipRS 
+cd ..
