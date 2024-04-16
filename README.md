@@ -1,6 +1,3 @@
-#### This is an anonymized version of the repository for FAST24 Submission titled "DNA Storage Toolkit: A Modular End-to-End DNA Data Storage Codec and Simulator."
-
-
 ## DNA Storage Toolkit: A Modular End-to-End DNA Data Storage Codec and Simulator
 
 With the exponential growth in data generation, the need for efficient and cost-effective data storage solutions has never been greater. Advances in DNA synthesis and sequencing technologies have sparked interest in using DNA as a medium for long-term, high-density data storage. However, despite numerous proposals for DNA storage architectures, there is a lack of comprehensive tools for research in this field.
