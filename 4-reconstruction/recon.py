@@ -39,7 +39,7 @@ def NW_recover_strand(cluster, strand_len):
             if strand[pos] == '-':
                 unkown_num = unkown_num + 1
         pos_to_unkown_num[pos] = unkown_num
-    a = sorted(pos_to_unkown_num.items(), key=lambda kv:(kv[1], kv[0]), reverse = True)
+    a = sorted(pos_to_unkown_num.items(), key=lambda kv:(kv[1]), reverse = True)
     skip_index_num = length - ref_size
     skip_index = []
     loop = 0
@@ -200,6 +200,7 @@ def reconstruct(cluster):
     # Single sided BMA
     elif ALG==1:
         mj = recover_strand(cluster, strand_length)
+    # Needleman-Wunsch
     else:
         mj = NW_recover_strand(cluster, strand_length)
     clean_up(file_params, strand_num, myPath)

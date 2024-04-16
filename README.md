@@ -43,7 +43,7 @@ For the RNN simulator, you will need:
 After installing these, you can simply clone this repo and use the modules directly:
 
 ```
-$ git clone https://github.com/prongs1996/DNAStorageToolkit.git
+$ git clone https://github.com/DNAStorageToolkit/DNAStorageToolkit.git
 
 $ cd DNAStorageToolkit
 ```
@@ -77,9 +77,20 @@ Our pipeline consists of the following modules:
 Each module is designed to be used independently or in combination, allowing you to tailor your DNA storage pipeline to your specific needs.
 
 
-## License
+## Citation
 
-This anonymous version of the repository is for conference review only. The anonymous version is not meant for sharing.
+If you use this toolkit, please cite:
+If you use the split/code/models from this repo, please cite our paper:
+```
+@inproceedings{sharma2024dnatoolkit,
+  title={DNA Storage Toolkit: A Modular End-to-End DNA Data Storage Codec and Simulator},
+  author={Sharma, Puru and Goh Yipeng, Gary and Gao, Bin and Ou, Longshen and Lin, Dehui and Sharma, Deepak and Jevdjic, Djordje},
+  booktitle={2024 IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)},
+  year={2024},
+  abbr={ISPASS'24},
+  organization={IEEE}
+}
+```
 
 
 We hope that our DNA storage pipeline toolkit proves valuable to storage researchers and developers who are exploring the exciting possibilities of DNA-based data storage. If you have any questions or feedback, please don't hesitate to reach out. 🧬📦🚀
