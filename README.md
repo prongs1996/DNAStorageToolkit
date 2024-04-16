@@ -79,8 +79,7 @@ Each module is designed to be used independently or in combination, allowing you
 
 ## Citation
 
-If you use this toolkit, please cite:
-If you use the split/code/models from this repo, please cite our paper:
+If you use this toolkit, please cite our paper:
 ```
 @inproceedings{sharma2024dnatoolkit,
   title={DNA Storage Toolkit: A Modular End-to-End DNA Data Storage Codec and Simulator},
